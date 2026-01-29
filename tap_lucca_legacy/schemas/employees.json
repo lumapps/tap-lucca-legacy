@@ -1,0 +1,102 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "managerID": {
+	        "type": ["null", "integer"]
+        },
+        "manager": {
+	        "type": ["null", "object"]
+        },
+        "departmentID": {
+	        "type": ["null", "integer"]
+        },
+        "legalEntityID": {
+	        "type": ["null", "integer"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "firstName": {
+            "type": ["null", "string"]
+        },
+        "lastName": {
+            "type": ["null", "string"]
+        },
+        "mail": {
+            "type": ["null", "string"]
+        },
+        "login": {
+            "type": ["null", "string"]
+        },
+        "employeeNumber": {
+            "type": ["null", "string"]
+        },
+        "civilTitle": {
+            "type": ["null", "string"]
+        },
+        "jobTitle": {
+            "type": ["null", "string"]
+        },
+        "dtContractStart": {
+            "type": ["null", "string"]
+        },
+        "dtContractEnd": {
+            "type": ["null", "string"]
+        },
+        "seniorityDate": {
+            "type": ["null", "string"]
+        },
+        "gender": {
+            "type": ["null", "string"]
+        },
+        "nationality": {
+            "type": ["null", "object"]
+        },
+        "externalId": {
+            "type": ["null", "string"]
+        },
+        "extendedData": {
+            "type": ["null", "object"]
+        },
+        "attributes": {
+            "type": ["null", "object"]
+        },
+        "applicationData": {
+            "type": ["null", "object"]
+        },
+
+        "culture": {
+            "type": ["null", "object"]
+        },
+        "rolePrincipal": {
+            "type": ["null", "object"]
+        },
+        "habilitedRoles": {
+            "type": ["null", "array"]
+        },
+        "csp": {
+            "type": ["null", "object"]
+        },
+        "userWorkCycles": {
+            "type": ["null", "array"]
+        },
+        "calendar": {
+            "type": ["null", "object"]
+        },
+
+
+        "modifiedAt": {
+            "type": ["null", "string"]
+        },
+        "userAxisValues_4": {
+            "type": ["null", "object"]
+        },
+        "userAxisValues_7": {
+            "type": ["null", "object"]
+        }
+    }
+}

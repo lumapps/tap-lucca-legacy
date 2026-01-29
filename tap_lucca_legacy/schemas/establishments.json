@@ -1,0 +1,57 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "name": {
+	        "type": ["null", "string"]
+        },
+        "code": {
+	        "type": ["null", "string"]
+        },
+        "legalUnitId": {
+	        "type": ["null", "integer"]
+        },
+        "legalUnit": {
+	        "type": ["null", "object"]
+        },
+        "legalIdentificationNumber": {
+	        "type": ["null", "string"]
+        },
+        "activityCode": {
+	        "type": ["null", "string"]
+        },
+        "calendarId": {
+	        "type": ["null", "integer"]
+        },
+        "address": {
+	        "type": ["null", "object"]
+        },
+        "timeZoneId": {
+	        "type": ["null", "string"]
+        },
+        "usersCount": {
+            "type": ["null", "integer"]
+        },
+        "createdAt": {
+            "type": ["null", "string"]
+        },
+        "author": {
+            "type": ["null", "object"]
+        },
+        "lastModifiedAt": {
+            "type": ["null", "string"]
+        },
+        "lastModifiedAtOffset": {
+            "type": ["null", "string"]
+        },
+        "lastModifier": {
+            "type": ["null", "object"]
+        },
+        "isArchived": {
+            "type": ["null", "boolean"]
+        }
+    }
+}

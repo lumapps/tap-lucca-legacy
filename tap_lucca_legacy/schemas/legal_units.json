@@ -1,0 +1,39 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "name": {
+	        "type": ["null", "string"]
+        },
+        "code": {
+	        "type": ["null", "string"]
+        },
+        "legalIdentificationNumber": {
+	        "type": ["null", "string"]
+        },
+        "activityCode": {
+	        "type": ["null", "string"]
+        },
+        "oldCountryId": {
+	        "type": ["null", "integer"]
+        },
+        "countryId": {
+	        "type": ["null", "integer"]
+        },
+        "country": {
+	        "type": ["null", "object"]
+        },
+        "headquartersId": {
+	        "type": ["null", "integer"]
+        },
+        "createdAt": {
+	        "type": ["null", "string"]
+        },
+        "isArchived": {
+	        "type": ["null", "boolean"]
+        }
+    }
+}

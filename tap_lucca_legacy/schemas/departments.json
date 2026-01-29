@@ -1,0 +1,39 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "name": {
+	        "type": ["null", "string"]
+        },
+        "code": {
+	        "type": ["null", "string"]
+        },
+        "hierarchy": {
+	        "type": ["null", "string"]
+        },
+        "parentId": {
+	        "type": ["null", "string"]
+        },
+        "isActive": {
+	        "type": ["null", "boolean"]
+        },
+        "position": {
+	        "type": ["null", "number"]
+        },
+        "level": {
+	        "type": ["null", "integer"]
+        },
+        "headID": {
+	        "type": ["null", "integer"]
+        },
+        "head": {
+	        "type": ["null", "object"]
+        },
+        "isArchived": {
+	        "type": ["null", "boolean"]
+        }
+    }
+}

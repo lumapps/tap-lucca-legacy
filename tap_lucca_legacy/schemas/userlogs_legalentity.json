@@ -1,0 +1,30 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "owner": {
+            "type": ["null", "object"]
+        },
+        "author": {
+            "type": ["null", "object"]
+        },
+        "modifiedAt": {
+            "type": ["null", "string"]
+        },
+        "modificationSource": {
+            "type": ["null", "string"]
+        },
+        "entryType": {
+            "type": ["null", "string"]
+        },
+        "value": {
+            "type": ["null", "string"]
+        }
+   }
+}  

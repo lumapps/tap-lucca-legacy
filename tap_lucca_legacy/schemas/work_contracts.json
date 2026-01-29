@@ -1,0 +1,84 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "ownerId": {
+	        "type": ["null", "integer"]
+        },
+        "startsOn": {
+	        "type": ["null", "string"]
+        },
+        "endsOn": {
+	        "type": ["null", "string"]
+        },
+        "isApplicable": {
+	        "type": ["null", "boolean"]
+        },
+        "establishment": {
+	        "type": ["null", "object"]
+        },
+        "establishmentId": {
+	        "type": ["null", "integer"]
+        },
+        "spc": {
+	        "type": ["null", "object"]
+        },
+        "spcId": {
+	        "type": ["null", "integer"]
+        },
+        "type": {
+	        "type": ["null", "object"]
+        },
+        "typeId": {
+            "type": ["null", "integer"]
+        },
+        "hiringType": {
+            "type": ["null", "object"]
+        },
+        "hiringTypeId": {
+            "type": ["null", "integer"]
+        },
+        "terminationReason": {
+            "type": ["null", "object"]
+        },
+        "terminationReasonId": {
+            "type": ["null", "integer"]
+        },
+        "trialPeriodDays": {
+            "type": ["null", "integer"]
+        },
+        "renewedTrialPeriodDays": {
+            "type": ["null", "integer"]
+        },
+        "trialPeriodEndDate": {
+            "type": ["null", "string"]
+        },
+        "trialPeriodEndDate2": {
+            "type": ["null", "string"]
+        },
+        "internshipSupervisorId": {
+            "type": ["null", "integer"]
+        },
+        "authorId": {
+            "type": ["null", "integer"]
+        },
+        "createdAt": {
+            "type": ["null", "string"]
+        },
+        "lastModifierId": {
+            "type": ["null", "integer"]
+        },
+        "lastModifiedAt": {
+            "type": ["null", "string"]
+        },
+        "workingTimeArrangementId": {
+            "type": ["null", "integer"]
+        },
+        "file": {
+            "type": ["null", "object"]
+        }
+    }
+}
