@@ -176,8 +176,8 @@ class LuccaLegacyStream(RESTStream):
                 if next_page_token:
                     params["page"] = next_page_token
 
-        if self.replication_key:
-            params["orderBy"] = f"{self.replication_key},desc"
+        # if self.replication_key:
+        #     params["orderBy"] = f"{self.replication_key},desc"
 
         return params
 
