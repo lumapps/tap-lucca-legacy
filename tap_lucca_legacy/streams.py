@@ -18,6 +18,8 @@ class EmployeesStream(LuccaLegacyStream):
     paginator = "offset"
     paginator_count_jsonpath = "data.count"
     stream_params={
+        "orderBy": "id,asc",
+        "formerEmployees": "true",
         "fields": ",".join([
             "id",
             "managerId",
@@ -304,6 +306,32 @@ class UserlogsLocationStream(LuccaLegacyStream):
             "value",
         ]),
         "name": "userAxisValues_7",
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class UserlogsManagerStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "userlogs_manager"
+    path = "/api/v3/userlogs"
+    records_jsonpath = "$.data.items[*]"
+    paginator = None
+    # paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "id",
+            "name",
+            "owner",
+            "author",
+            "modifiedAt",
+            "modificationSource",
+            "entryType",
+            "value",
+        ]),
+        "name": "manager",
     }
 
     primary_keys = ("id",)

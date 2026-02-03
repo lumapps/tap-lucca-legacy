@@ -61,6 +61,7 @@ class TapLuccaLegacy(Tap):
             streams.UserlogsLegalentityStream(self),
             streams.UserlogsCostcenterStream(self),
             streams.UserlogsLocationStream(self),
+            streams.UserlogsManagerStream(self),
         ]
 
 
