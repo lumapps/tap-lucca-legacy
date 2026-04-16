@@ -2,10 +2,19 @@
 
 from __future__ import annotations
 
+import sys
+from typing import Any
+
 from singer_sdk import typing as th, SchemaDirectory, StreamSchema
+from singer_sdk.helpers.types import Context
 
 from tap_lucca_legacy import schemas
 from tap_lucca_legacy.client import LuccaLegacyStream
+
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
 
 SCHEMAS_DIR = SchemaDirectory(schemas)
 
@@ -364,6 +373,148 @@ class WorkLocationsStream(LuccaLegacyStream):
     stream_params={
         "fields.root": ",".join([
             "count",
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class LeavesStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "leaves"
+    path = "/api/v3/leaves"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 5000
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "date": "since,2000-01-01",
+        "fields": ",".join([
+            "id",
+            "date",
+            "isAM",
+            "leaveAccountId",
+            "leavePeriodId",
+            "leaveAccount.id",
+            "leaveAccount.name",
+            "leavePeriod.id",
+            "leavePeriod.ownerId",
+            "leavePeriod.isConfirmed",
+            "leavePeriod.confirmationDate",
+            "leavePeriod.leaves.id",
+            "leavePeriod.logs.id",
+            "leavePeriod.logs.date",
+            "leavePeriod.logs.status",
+            "value",
+            "creationDate",
+            "isActive",
+            "cancellationDate",
+            "cancellationUserId",
+            "collection.count",
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+    _legal_unit_ids: list[int] | None = None
+
+    def _fetch_legal_unit_ids(self) -> list[int]:
+        """Fetch all legal unit IDs from the legal-units endpoint."""
+        if self._legal_unit_ids is None:
+            legal_units_stream = LegalUnitsStream(self._tap)
+            self._legal_unit_ids = [
+                record["id"]
+                for record in legal_units_stream.get_records(context=None)
+            ]
+            self.logger.info("Fetched %d legal unit IDs", len(self._legal_unit_ids))
+        return self._legal_unit_ids
+
+    @override
+    def get_url_params(
+        self,
+        context: Context | None,
+        next_page_token: Any | None,
+    ) -> dict[str, Any]:
+        params = super().get_url_params(context, next_page_token)
+        legal_unit_ids = self._fetch_legal_unit_ids()
+        params["leavePeriod.owner.legalEntityId"] = ",".join(str(id) for id in legal_unit_ids)
+        return params
+
+class LeaveRequestsStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "leave_requests"
+    path = "/api/v3/leaveRequests"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 5000
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "id",
+            "leavePeriodId",
+            "leavePeriod.id",
+            "leavePeriod.ownerId",
+            "leavePeriod.isConfirmed",
+            "leavePeriod.confirmationDate",
+            "leavePeriod.leaves.id",
+            "leavePeriod.logs.id",
+            "leavePeriod.logs.date",
+            "leavePeriod.logs.status",
+            "status",
+            "creationDate",
+            "nextApproverId",
+            "cancellationUserId",
+            "cancellationDate",
+            "isActive",
+            "approvals.id",
+            "approvals.date",
+            "approvals.approverId",
+            "approvals.substitutedApproverId",
+            "approvals.approved",
+            "cancellationRequests.id",
+            "cancellationRequests.authorId",
+            "cancellationRequests.rank",
+            "cancellationRequests.creationDate",
+            "cancellationRequests.nextApproverId",
+            "cancellationRequests.isActive",
+            "collection.count"
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class SickLeaveCertificatesStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "sick_leave_certificates"
+    path = "/api/v3/sickLeaveCertificates"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 5000
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "id",
+            "leavePeriodId",
+            "leaveAccountId",
+            "authorId",
+            "creationDate",
+            "isActive",
+            "cancellationDate",
+            "cancellationUserId",
+            "partTimeNature",
+            "partTimeActivityRate",
+            "partTimeReturnType",
+            "extension",
+            "originalLeavePeriodId",
+            "collection.count"
         ])
     }
 
