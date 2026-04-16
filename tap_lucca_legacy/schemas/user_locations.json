@@ -1,0 +1,33 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "ownerId": {
+	        "type": ["null", "integer"]
+        },
+        "workLocationId": {
+	        "type": ["null", "integer"]
+        },
+        "date": {
+	        "type": ["null", "string"]
+        },
+        "position": {
+	        "type": ["null", "string"]
+        },
+        "status": {
+	        "type": ["null", "string"]
+        },
+        "areaId": {
+	        "type": ["null", "integer"]
+        },
+        "createdAt": {
+	        "type": ["null", "string"]
+        },
+        "deletedAt": {
+	        "type": ["null", "string"]
+        }
+   }
+}  
