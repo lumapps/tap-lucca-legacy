@@ -337,3 +337,36 @@ class UserlogsManagerStream(LuccaLegacyStream):
     primary_keys = ("id",)
     replication_key = None
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class UserLocationsStream(LuccaLegacyStream):
+    name = "user_locations"
+    path = "/work-locations/public/api/user-locations"
+    records_jsonpath = "$.items[*]"
+    paginator = "page"
+    default_page_size = 1000
+    paginator_count_jsonpath = "count"
+    stream_params={
+        "fields.root": ",".join([
+            "count",
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class WorkLocationsStream(LuccaLegacyStream):
+    name = "work_locations"
+    path = "/work-locations/public/api/work-locations"
+    records_jsonpath = "$.items[*]"
+    paginator = "page"
+    paginator_count_jsonpath = "count"
+    stream_params={
+        "fields.root": ",".join([
+            "count",
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)

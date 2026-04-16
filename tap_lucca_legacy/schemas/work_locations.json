@@ -1,0 +1,69 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "integer"]
+        },
+        "name": {
+	        "type": ["null", "string"]
+        },
+        "type": {
+	        "type": ["null", "string"]
+        },
+        "isActive": {
+	        "type": ["null", "boolean"]
+        },
+        "office": {
+	        "type": ["null", "object"],
+            "additionalProperties": false,
+            "properties": {
+                "capacity": {
+                    "type": ["null", "integer"]
+                },
+                "showAreas": {
+                    "type": ["null", "boolean"]
+                },
+                "areas": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "id": {
+                                "type": ["null", "integer"]
+                            },
+                            "name": {
+                                "type": ["null", "string"]
+                            },
+                            "capacity": {
+                                "type": ["null", "integer"]
+                            },
+                            "floorKey": {
+                                "type": ["null", "integer"]
+                            }
+                        }
+                    }
+                },
+                "floors": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "key": {
+                                "type": ["null", "integer"]
+                            },
+                            "name": {
+                                "type": ["null", "string"]
+                            },
+                            "position": {
+                                "type": ["null", "integer"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+   }
+}  
