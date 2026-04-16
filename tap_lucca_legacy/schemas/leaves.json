@@ -1,0 +1,94 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "string"]
+        },
+        "date": {
+            "type": ["null", "string"]
+        },
+        "isAM": {
+            "type": ["null", "boolean"]
+        },
+        "leaveAccountId": {
+            "type": ["null", "integer"]
+        },
+        "leavePeriodId": {
+            "type": ["null", "integer"]
+        },
+        "leaveAccount": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "leavePeriod": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "number"]
+                },
+                "ownerId": {
+                    "type": ["null", "number"]
+                },
+                "isConfirmed": {
+                    "type": ["null", "boolean"]
+                },
+                "confirmationDate": {
+                    "type": ["null", "string"]
+                },
+                "leaves": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "id": {
+                                "type": ["null", "string"]
+                            }
+                        }
+                    }
+                },
+                "logs": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "id": {
+                                "type": ["null", "integer"]
+                            },
+                            "date": {
+                                "type": ["null", "string"]
+                            },
+                            "status": {
+                                "type": ["null", "integer"]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value": {
+            "type": ["null", "string"]
+        },
+        "creationDate": {
+            "type": ["null", "string"]
+        },
+        "isActive": {
+            "type": ["null", "boolean"]
+        },
+        "cancellationDate": {
+            "type": ["null", "string"]
+        },
+        "cancellationUserId": {
+            "type": ["null", "integer"]
+        }
+    }
+}

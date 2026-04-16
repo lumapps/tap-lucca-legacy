@@ -1,0 +1,48 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "leavePeriodId": {
+            "type": ["null", "integer"]
+        },
+        "leaveAccountId": {
+            "type": ["null", "integer"]
+        },
+        "authorId": {
+            "type": ["null", "integer"]
+        },
+        "creationDate": {
+            "type": ["null", "string"]
+        },
+        "isActive": {
+            "type": ["null", "boolean"]
+        },
+        "cancellationDate": {
+            "type": ["null", "string"]
+        },
+        "cancellationUserId": {
+            "type": ["null", "integer"]
+        },
+        "partTimeNature": {
+            "type": ["null", "integer"]
+        },
+        "partTimeActivityRate": {
+            "type": ["null", "number"]
+        },
+        "partTimeReturnType": {
+            "type": ["null", "integer"]
+        },
+        "extension": {
+            "type": ["null", "boolean"]
+        },
+        "originalLeavePeriodId": {
+            "type": ["null", "integer"]
+        },
+        "collection.count": {
+            "type": ["null", "integer"]
+        }
+    } 
+}

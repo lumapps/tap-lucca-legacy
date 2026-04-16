@@ -1,0 +1,126 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "leavePeriodId": {
+            "type": ["null", "integer"]
+        },
+        "leavePeriod": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "ownerId": {
+                    "type": ["null", "integer"]
+                },
+                "isConfirmed": {
+                    "type": ["null", "boolean"]
+                },
+                "confirmationDate": {
+                    "type": ["null", "string"]
+                },
+                "leaves": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "id": {
+                                "type": ["null", "string"]
+                            }
+                        }
+                    }
+                },
+                "logs": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "id": {
+                                "type": ["null", "integer"]
+                            },
+                            "date": {
+                                "type": ["null", "string"]
+                            },
+                            "status": {
+                                "type": ["null", "integer"]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "status": {
+            "type": ["null", "integer"]
+        },
+        "creationDate": {
+            "type": ["null", "string"]
+        },
+        "nextApproverId": {
+            "type": ["null", "integer"]
+        },
+        "cancellationUserId": {
+            "type": ["null", "integer"]
+        },
+        "cancellationDate": {
+            "type": ["null", "string"]
+        },
+        "isActive": {
+            "type": ["null", "boolean"]
+        },
+        "approvals": {
+            "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "properties": {
+                    "id": {
+                        "type": ["null", "integer"]
+                    },
+                    "date": {
+                        "type": ["null", "string"]
+                    },
+                    "approverId": {
+                        "type": ["null", "integer"]
+                    },
+                    "substitutedApproverId": {
+                        "type": ["null", "integer"]
+                    },
+                    "approved": {
+                        "type": ["null", "boolean"]
+                    }
+                }
+            }
+        },
+        "cancellationRequests": {
+            "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "properties": {
+                    "id": {
+                        "type": ["null", "integer"]
+                    },
+                    "authorId": {
+                        "type": ["null", "integer"]
+                    },
+                    "rank": {
+                        "type": ["null", "integer"]
+                    },
+                    "creationDate": {
+                        "type": ["null", "string"]
+                    },
+                    "nextApproverId": {
+                        "type": ["null", "integer"]
+                    },
+                    "isActive": {
+                        "type": ["null", "boolean"]
+                    }
+                }
+            }
+        }
+    }
+}
