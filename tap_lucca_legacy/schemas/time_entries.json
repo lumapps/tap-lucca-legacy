@@ -1,0 +1,69 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "ownerId": {
+            "type": ["null", "integer"]
+        },
+        "unit": {
+            "type": ["null", "integer"]
+        },
+        "startsAt": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "duration": {
+            "type": ["null", "string"],
+            "format": "duration"
+        },
+        "endsAt": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "authorId": {
+            "type": ["null", "integer"]
+        },
+        "createdAt": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "modifierId": {
+            "type": ["null", "integer"]
+        },
+        "modifiedAt": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "archivedAt": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "creationSource": {
+            "type": ["null", "integer"]
+        },
+        "layer": {
+            "type": ["null", "integer"]
+        },
+        "axisSections": {
+            "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "additionalProperties": false,
+                "properties": {
+                    "id": {
+                        "type": ["null", "integer"]
+                    }
+                }
+            }
+        },
+        "timeTypeId": {
+            "type": ["null", "integer"]
+        },
+        "timesheetId": {
+            "type": ["null", "integer"]
+        }
+    }
+}

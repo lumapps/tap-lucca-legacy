@@ -1,0 +1,32 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "ownerId": {
+            "type": ["null", "integer"]
+        },
+        "startsOn": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "endsOn": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "expectedNextActorId": {
+            "type": ["null", "integer"]
+        },
+        "status": {
+            "type": ["null", "integer"]
+        },
+        "statuteId": {
+            "type": ["null", "integer"]
+        }
+    }
+}
