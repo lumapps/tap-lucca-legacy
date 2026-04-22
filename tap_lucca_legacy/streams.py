@@ -521,3 +521,117 @@ class SickLeaveCertificatesStream(LuccaLegacyStream):
     primary_keys = ("id",)
     replication_key = None
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class TimeEntriesStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "time_entries"
+    path = "/api/v3/timeentries"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 5000
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "layer": "notequal,1",
+        "fields": ",".join([
+            "id",
+            "ownerId",
+            "unit",
+            "startsAt",
+            "duration",
+            "endsAt",
+            "authorId",
+            "createdAt",
+            "modifierId",
+            "modifiedAt",
+            "archivedAt",
+            "creationSource",
+            "layer",
+            "axisSections",
+            "timeTypeId",
+            "timesheetId",
+            "collection.count"
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class TimesheetsStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "timesheets"
+    path = "/api/v3/timmitimesheets"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 5000
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "id",
+            "name",
+            "ownerId",
+            "startsOn",
+            "endsOn",
+            "expectedNextActorId",
+            "status",
+            "statuteId",
+            "collection.count"
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class DueTimesheetsStream(LuccaLegacyStream):
+    """Define custom stream."""
+
+    name = "due_timesheets"
+    path = "/api/v3/timmitimesheets/remindable"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 5000
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "id",
+            "name",
+            "ownerId",
+            "startsOn",
+            "endsOn",
+            "expectedNextActorId",
+            "status",
+            "statuteId",
+            "collection.count"
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+    _legal_unit_ids: list[int] | None = None
+
+    def _fetch_legal_unit_ids(self) -> list[int]:
+        """Fetch all legal unit IDs from the legal-units endpoint."""
+        if self._legal_unit_ids is None:
+            legal_units_stream = LegalUnitsStream(self._tap)
+            self._legal_unit_ids = [
+                record["id"]
+                for record in legal_units_stream.get_records(context=None)
+            ]
+            self.logger.info("Fetched %d legal unit IDs", len(self._legal_unit_ids))
+        return self._legal_unit_ids
+
+    @override
+    def get_url_params(
+        self,
+        context: Context | None,
+        next_page_token: Any | None,
+    ) -> dict[str, Any]:
+        params = super().get_url_params(context, next_page_token)
+        legal_unit_ids = self._fetch_legal_unit_ids()
+        params["legalEntityIds"] = ",".join(str(id) for id in legal_unit_ids)
+        return params
