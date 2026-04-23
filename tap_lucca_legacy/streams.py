@@ -19,8 +19,6 @@ else:
 SCHEMAS_DIR = SchemaDirectory(schemas)
 
 class EmployeesStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "employees"
     path = "/api/v3/users"
     records_jsonpath = "$.data.items[*]"
@@ -52,7 +50,6 @@ class EmployeesStream(LuccaLegacyStream):
             "extendeddata",
             "attributes",
             "applicationData",
-
             "culture",
             "rolePrincipal",
             "habilitedRoles",
@@ -63,7 +60,6 @@ class EmployeesStream(LuccaLegacyStream):
             "userWorkCycles.endsOn",
             "userWorkCycles.workCycle",
             "calendar",
-
             "userAxisValues",
             "modifiedAt",
             "collection.count",
@@ -75,8 +71,6 @@ class EmployeesStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class LegalUnitsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "legal_units"
     path = "/organization/structure/api/legal-units"
     records_jsonpath = "$.items[*]"
@@ -95,8 +89,6 @@ class LegalUnitsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class DepartmentsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "departments"
     path = "/api/v3/departments"
     records_jsonpath = "$.data.items[*]"
@@ -123,8 +115,6 @@ class DepartmentsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class WorkcyclesStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "workcycles"
     path = "/api/v3/workcycles"
     records_jsonpath = "$.data.items[*]"
@@ -143,8 +133,6 @@ class WorkcyclesStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class WorkContractsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "work_contracts"
     path = "/directory/api/4.0/work-contracts"
     records_jsonpath = "$.items[*]"
@@ -161,8 +149,6 @@ class WorkContractsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class EstablishmentsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "establishments"
     path = "/organization/structure/api/establishments"
     records_jsonpath = "$.items[*]"
@@ -179,8 +165,6 @@ class EstablishmentsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class RolesStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "roles"
     path = "/api/v3/roles"
     records_jsonpath = "$.data.items[*]"
@@ -192,8 +176,6 @@ class RolesStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class CostCentersStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "cost_centers"
     path = "/api/v3/axes/4"
     records_jsonpath = "$.data.axisSections[*]"
@@ -205,8 +187,6 @@ class CostCentersStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class LocationsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "locations"
     path = "/api/v3/axes/7"
     records_jsonpath = "$.data.axisSections[*]"
@@ -218,8 +198,6 @@ class LocationsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class UserlogsDepartmentStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "userlogs_department"
     path = "/api/v3/userlogs"
     records_jsonpath = "$.data.items[*]"
@@ -244,8 +222,6 @@ class UserlogsDepartmentStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class UserlogsLegalentityStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "userlogs_legalentity"
     path = "/api/v3/userlogs"
     records_jsonpath = "$.data.items[*]"
@@ -270,8 +246,6 @@ class UserlogsLegalentityStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class UserlogsCostcenterStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "userlogs_costcenter"
     path = "/api/v3/userlogs"
     records_jsonpath = "$.data.items[*]"
@@ -296,8 +270,6 @@ class UserlogsCostcenterStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class UserlogsLocationStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "userlogs_location"
     path = "/api/v3/userlogs"
     records_jsonpath = "$.data.items[*]"
@@ -322,8 +294,6 @@ class UserlogsLocationStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class UserlogsManagerStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "userlogs_manager"
     path = "/api/v3/userlogs"
     records_jsonpath = "$.data.items[*]"
@@ -381,8 +351,6 @@ class WorkLocationsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class LeavesStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "leaves"
     path = "/api/v3/leaves"
     records_jsonpath = "$.data.items[*]"
@@ -445,8 +413,6 @@ class LeavesStream(LuccaLegacyStream):
         return params
 
 class LeaveRequestsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "leave_requests"
     path = "/api/v3/leaveRequests"
     records_jsonpath = "$.data.items[*]"
@@ -491,8 +457,6 @@ class LeaveRequestsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class SickLeaveCertificatesStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "sick_leave_certificates"
     path = "/api/v3/sickLeaveCertificates"
     records_jsonpath = "$.data.items[*]"
@@ -523,8 +487,6 @@ class SickLeaveCertificatesStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class TimeEntriesStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "time_entries"
     path = "/api/v3/timeentries"
     records_jsonpath = "$.data.items[*]"
@@ -559,8 +521,6 @@ class TimeEntriesStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class TimesheetsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "timesheets"
     path = "/api/v3/timmitimesheets"
     records_jsonpath = "$.data.items[*]"
@@ -586,8 +546,6 @@ class TimesheetsStream(LuccaLegacyStream):
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class DueTimesheetsStream(LuccaLegacyStream):
-    """Define custom stream."""
-
     name = "due_timesheets"
     path = "/api/v3/timmitimesheets/remindable"
     records_jsonpath = "$.data.items[*]"
@@ -635,3 +593,23 @@ class DueTimesheetsStream(LuccaLegacyStream):
         legal_unit_ids = self._fetch_legal_unit_ids()
         params["legalEntityIds"] = ",".join(str(id) for id in legal_unit_ids)
         return params
+
+class ExtensionUserDefinitionsStream(LuccaLegacyStream):
+    name = "extension_user_definitions"
+    path = "/api/v3/extensionuserdefinitions"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "formatKey": "select",
+        "fields": ",".join([
+            "id",
+            "formatKey",
+            "extensionUserPropertyListEntries[id,name]",
+            "collection.count"
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
