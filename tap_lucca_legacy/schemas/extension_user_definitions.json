@@ -1,0 +1,27 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+	        "type": ["null", "string"]
+        },
+        "formatKey": {
+	        "type": ["null", "string"]
+        },
+        "extensionUserPropertyListEntries": {
+	        "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "additionalProperties": false,
+                "properties": {
+                    "id": {
+                        "type": ["null", "integer"]
+                    },
+                    "name": {
+                        "type": ["null", "string"]
+                    }
+                }
+            }
+        }
+    }
+}
