@@ -322,7 +322,7 @@ class UserLocationsStream(LuccaLegacyStream):
     path = "/work-locations/public/api/user-locations"
     records_jsonpath = "$.items[*]"
     paginator = "page"
-    default_page_size = 1000
+    default_page_size = 250
     paginator_count_jsonpath = "count"
     stream_params={
         "fields.root": ",".join([
@@ -355,7 +355,7 @@ class LeavesStream(LuccaLegacyStream):
     path = "/api/v3/leaves"
     records_jsonpath = "$.data.items[*]"
     paginator = "offset"
-    default_page_size = 5000
+    default_page_size = 250
     paginator_count_jsonpath = "data.count"
     stream_params={
         "date": "since,2000-01-01",
@@ -417,7 +417,7 @@ class LeaveRequestsStream(LuccaLegacyStream):
     path = "/api/v3/leaveRequests"
     records_jsonpath = "$.data.items[*]"
     paginator = "offset"
-    default_page_size = 5000
+    default_page_size = 250
     paginator_count_jsonpath = "data.count"
     stream_params={
         "fields": ",".join([
@@ -461,7 +461,7 @@ class SickLeaveCertificatesStream(LuccaLegacyStream):
     path = "/api/v3/sickLeaveCertificates"
     records_jsonpath = "$.data.items[*]"
     paginator = "offset"
-    default_page_size = 5000
+    default_page_size = 250
     paginator_count_jsonpath = "data.count"
     stream_params={
         "fields": ",".join([
@@ -491,7 +491,7 @@ class TimeEntriesStream(LuccaLegacyStream):
     path = "/api/v3/timeentries"
     records_jsonpath = "$.data.items[*]"
     paginator = "offset"
-    default_page_size = 5000
+    default_page_size = 250
     paginator_count_jsonpath = "data.count"
     stream_params={
         "layer": "notequal,1",
@@ -525,7 +525,7 @@ class TimesheetsStream(LuccaLegacyStream):
     path = "/api/v3/timmitimesheets"
     records_jsonpath = "$.data.items[*]"
     paginator = "offset"
-    default_page_size = 5000
+    default_page_size = 250
     paginator_count_jsonpath = "data.count"
     stream_params={
         "fields": ",".join([
@@ -550,7 +550,7 @@ class DueTimesheetsStream(LuccaLegacyStream):
     path = "/api/v3/timmitimesheets/remindable"
     records_jsonpath = "$.data.items[*]"
     paginator = "offset"
-    default_page_size = 5000
+    default_page_size = 250
     paginator_count_jsonpath = "data.count"
     stream_params={
         "fields": ",".join([
@@ -612,4 +612,147 @@ class ExtensionUserDefinitionsStream(LuccaLegacyStream):
 
     primary_keys = ("id",)
     replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class ExpenseNaturesStream(LuccaLegacyStream):
+    name = "expense_natures"
+    path = "/api/expenseNatures"
+    records_jsonpath = "$.data[*]"
+    paginator = "offset"
+    paginator_count_jsonpath = "header.paging.count"
+    stream_params={
+        "fields": ",".join([
+            "id",
+            "multilingualName",
+            "name",
+            "type",
+            "isEnabled",
+            "position",
+            "description",
+            "multilingualDescription"
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = None
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class ExpenseClaimsStream(LuccaLegacyStream):
+    name = "expense_claims"
+    path = "/api/v3/expenseClaims"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "approvalState.code",
+            "approvalState.id",
+            "approvalState.name",
+            "approvalStateId",
+            "author.id",
+            "author.name",
+            "author.url",
+            "authorId",
+            "authorizedActions.isApprovable",
+            "authorizedActions.isCancellable",
+            "authorizedActions.isControllable",
+            "authorizedActions.isEditable",
+            "authorizedActions.isUnControllable",
+            "collection.count",
+            "createdOn",
+            "currency.id",
+            "currency.name",
+            "currency.url",
+            "currencyId",
+            "declaredOn",
+            "department.id",
+            "department.name",
+            "department.url",
+            "departmentId",
+            "id",
+            "legalEntity.id",
+            "legalEntity.name",
+            "legalEntity.url",
+            "legalEntityId",
+            "modifiedOn",
+            "name",
+            "owner.firstName",
+            "owner.id",
+            "owner.lastName",
+            "owner.name",
+            "owner.url",
+            "ownerId",
+            "paymentMethod.code",
+            "paymentMethod.id",
+            "paymentMethod.name",
+            "paymentReceivedOn",
+            "status.code",
+            "status.id",
+            "status.name",
+            "statusId",
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = "modifiedOn"
+    is_sorted=True
+    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+
+class ExpenseClaimItemsStream(LuccaLegacyStream):
+    name = "expense_claim_items"
+    path = "/api/v3/expenseClaimItems"
+    records_jsonpath = "$.data.items[*]"
+    paginator = "offset"
+    default_page_size = 250
+    paginator_count_jsonpath = "data.count"
+    stream_params={
+        "fields": ",".join([
+            "collection.count",
+            "attendees.external.id",
+            "attendees.internal.culture.id",
+            "attendees.internal.department.id",
+            "attendees.internal.employeeNumber",
+            "attendees.internal.id",
+            "attendees.internal.legalEntity.id",
+            "axisSections.axisId",
+            "axisSections.id",
+            "createdOn",
+            "effectiveQuantity",
+            "expenseClaimId",
+            "expenseNatureId",
+            "id",
+            "isControlled",
+            "lineNumber",
+            "mileage.distance",
+            "mileage.power",
+            "mileage.waypoints",
+            "modifiedOn",
+            "originalTransaction.currency.id",
+            "originalTransaction.currency.name",
+            "originalTransaction.currencyId",
+            "originalTransaction.grossAmount",
+            "originalTransaction.isExpenseAbroad",
+            "ownerId",
+            "paymentMethodId",
+            "processedAmounts.currency.id",
+            "processedAmounts.currency.name",
+            "processedAmounts.currencyId",
+            "processedAmounts.grossAmount",
+            "processedAmounts.netAmount",
+            "processedAmounts.vatBases.amountExcludingVat",
+            "processedAmounts.vatBases.countryVatRate.id",
+            "processedAmounts.vatBases.countryVatRate.name",
+            "processedAmounts.vatBases.countryVatRateId",
+            "processedAmounts.vatBases.vatAmount",
+            "purchasedOn",
+            "quantity",
+            "source.code",
+            "source.id",
+            "source.name",
+        ])
+    }
+
+    primary_keys = ("id",)
+    replication_key = "modifiedOn"
+    is_sorted=True
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)

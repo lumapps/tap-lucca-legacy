@@ -71,6 +71,9 @@ class TapLuccaLegacy(Tap):
             streams.TimesheetsStream(self),
             streams.DueTimesheetsStream(self),
             streams.ExtensionUserDefinitionsStream(self),
+            streams.ExpenseNaturesStream(self),
+            streams.ExpenseClaimsStream(self),
+            streams.ExpenseClaimItemsStream(self),
         ]
 
 
