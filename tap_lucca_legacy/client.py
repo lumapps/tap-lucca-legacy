@@ -163,7 +163,6 @@ class LuccaLegacyStream(RESTStream):
         """
         params: dict = self.stream_params
 
-
         match self.paginator:
             case "offset":
                 params["paging"] = f"0,{self.default_page_size}"
@@ -176,30 +175,14 @@ class LuccaLegacyStream(RESTStream):
                 if next_page_token:
                     params["page"] = next_page_token
 
-        # if self.replication_key:
-        #     params["orderBy"] = f"{self.replication_key},desc"
+        if self.replication_key:
+            params["orderBy"] = f"{self.replication_key},asc"
 
+            if starting_date := self.get_starting_timestamp(context):
+                params[self.replication_key] = starting_date.isoformat()
+
+        self.logger.info("QUERY PARAMS: %s", params)
         return params
-
-    @override
-    def prepare_request_payload(
-        self,
-        context: Context | None,
-        next_page_token: Any | None,
-    ) -> dict | None:
-        """Prepare the data payload for the REST API request.
-
-        By default, no payload will be sent (return None).
-
-        Args:
-            context: The stream context.
-            next_page_token: The next page index or value.
-
-        Returns:
-            A dictionary with the JSON body for a POST requests.
-        """
-        # TODO: Delete this method if no payload is required. (Most REST APIs.)
-        return None
 
     @override
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
@@ -216,24 +199,3 @@ class LuccaLegacyStream(RESTStream):
             self.records_jsonpath,
             input=response.json(parse_float=decimal.Decimal),
         )
-
-    @override
-    def post_process(
-        self,
-        row: dict,
-        context: Context | None = None,
-    ) -> dict | None:
-        """As needed, append or transform raw data to match expected structure.
-
-        Note: As of SDK v0.47.0, this method is automatically executed for all stream types.
-        You should not need to call this method directly in custom `get_records` implementations.
-
-        Args:
-            row: An individual record from the stream.
-            context: The stream context.
-
-        Returns:
-            The updated record dictionary, or ``None`` to skip the record.
-        """
-        # TODO: Delete this method if not needed.
-        return row

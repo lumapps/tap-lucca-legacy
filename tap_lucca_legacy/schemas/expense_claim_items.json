@@ -1,0 +1,217 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "attendees": {
+            "type": ["null", "object"],
+            "properties": {
+                "external": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "id": {
+                                "type": ["null", "integer"]
+                            }
+                        }
+                    }
+                },
+                "internal": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "id": {
+                                "type": ["null", "integer"]
+                            },
+                            "employeeNumber": {
+                                "type": ["null", "string"]
+                            },
+                            "culture": {
+                                "type": ["null", "object"],
+                                "properties": {
+                                    "id": {
+                                        "type": ["null", "integer"]
+                                    }
+                                }
+                            },
+                            "department": {
+                                "type": ["null", "object"],
+                                "properties": {
+                                    "id": {
+                                        "type": ["null", "integer"]
+                                    }
+                                }
+                            },
+                            "legalEntity": {
+                                "type": ["null", "object"],
+                                "properties": {
+                                    "id": {
+                                        "type": ["null", "integer"]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "axisSections": {
+            "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "properties": {
+                    "id": {
+                        "type": ["null", "integer"]
+                    },
+                    "axisId": {
+                        "type": ["null", "integer"]
+                    }
+                }
+            }
+        },
+        "createdOn": {
+            "type": ["null", "string"]
+        },
+        "effectiveQuantity": {
+            "type": ["null", "integer"]
+        },
+        "expenseClaimId": {
+            "type": ["null", "integer"]
+        },
+        "expenseNatureId": {
+            "type": ["null", "integer"]
+        },
+        "isControlled": {
+            "type": ["null", "boolean"]
+        },
+        "lineNumber": {
+            "type": ["null", "integer"]
+        },
+        "mileage": {
+            "type": ["null", "object"],
+            "properties": {
+                "distance": {
+                    "type": ["null", "number"]
+                },
+                "power": {
+                    "type": ["null", "number"]
+                },
+                "waypoints": {
+                    "type": ["null", "array"]
+                }
+            }
+        },
+        "modifiedOn": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "originalTransaction": {
+            "type": ["null", "object"],
+            "properties": {
+                "grossAmount": {
+                    "type": ["null", "number"]
+                },
+                "currencyId": {
+                    "type": ["null", "string"]
+                },
+                "isExpenseAbroad": {
+                    "type": ["null", "boolean"]
+                },
+                "currency": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "id": {
+                            "type": ["null", "string"]
+                        },
+                        "name": {
+                            "type": ["null", "string"]
+                        }
+                    }
+                }
+            }
+        },
+        "ownerId": {
+            "type": ["null", "integer"]
+        },
+        "paymentMethodId": {
+            "type": ["null", "integer"]
+        },
+        "processedAmounts": {
+            "type": ["null", "object"],
+            "properties": {
+                "grossAmount": {
+                    "type": ["null", "number"]
+                },
+                "currencyId": {
+                    "type": ["null", "string"]
+                },
+                "currency": {
+                    "type": ["null", "object"],
+                    "properties": {
+                        "id": {
+                            "type": ["null", "string"]
+                        },
+                        "name": {
+                            "type": ["null", "string"]
+                        }
+                    }
+                },
+                "netAmount": {
+                    "type": ["null", "number"]
+                },
+                "vatBases": {
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": ["null", "object"],
+                        "properties": {
+                            "countryVatRateId": {
+                                "type": ["null", "integer"]
+                            },
+                            "countryVatRate": {
+                                "type": ["null", "object"],
+                                "properties": {
+                                    "id": {
+                                        "type": ["null", "integer"]
+                                    },
+                                    "name": {
+                                        "type": ["null", "string"]
+                                    }
+                                }
+                            },
+                            "vatAmount": {
+                                "type": ["null", "number"]
+                            },
+                            "amountExcludingVat": {
+                                "type": ["null", "number"]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "purchasedOn": {
+            "type": ["null", "string"]
+        },
+        "quantity": {
+            "type": ["null", "integer"]
+        },
+        "source": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                },
+                "code": {
+                    "type": ["null", "string"]
+                }
+            }
+        }
+    }
+}

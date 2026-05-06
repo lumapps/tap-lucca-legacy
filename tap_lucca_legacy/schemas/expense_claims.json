@@ -1,0 +1,184 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "approvalState": {
+            "type": ["null", "object"],
+            "properties": {
+                "code": {
+                    "type": ["null", "string"]
+                },
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "approvalStateId": {
+            "type": ["null", "integer"]
+        },
+        "author": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                },
+                "url": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "authorId": {
+            "type": ["null", "integer"]
+        },
+        "authorizedActions": {
+            "type": ["null", "object"],
+            "properties": {
+                "isApprovable": {
+                    "type": ["null", "boolean"]
+                },
+                "isCancellable": {
+                    "type": ["null", "boolean"]
+                },
+                "isControllable": {
+                    "type": ["null", "boolean"]
+                },
+                "isEditable": {
+                    "type": ["null", "boolean"]
+                },
+                "isUnControllable": {
+                    "type": ["null", "boolean"]
+                }
+            }
+        },
+        "createdOn": {
+            "type": ["null", "string"]
+        },
+        "currency": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "string"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                },
+                "url": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "currencyId": {
+            "type": ["null", "string"]
+        },
+        "declaredOn": {
+            "type": ["null", "string"]
+        },
+        "department": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                },
+                "url": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "departmentId": {
+            "type": ["null", "integer"]
+        },
+        "legalEntity": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                },
+                "url": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "legalEntityId": {
+            "type": ["null", "integer"]
+        },
+        "modifiedOn": {
+            "type": ["null", "string"],
+            "format": "date-time"
+        },
+        "owner": {
+            "type": ["null", "object"],
+            "properties": {
+                "firstName": {
+                    "type": ["null", "string"]
+                },
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "lastName": {
+                    "type": ["null", "string"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                },
+                "url": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "ownerId": {
+            "type": ["null", "integer"]
+        },
+        "paymentMethod": {
+            "type": ["null", "object"],
+            "properties": {
+                "code": {
+                    "type": ["null", "string"]
+                },
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "paymentReceivedOn": {
+            "type": ["null", "string"]
+        },
+        "status": {
+            "type": ["null", "object"],
+            "properties": {
+                "code": {
+                    "type": ["null", "string"]
+                },
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "name": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "statusId": {
+            "type": ["null", "integer"]
+        }
+    }
+}

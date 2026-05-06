@@ -1,0 +1,41 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": ["null", "integer"]
+        },
+        "isEnabled": {
+            "type": ["null", "boolean"]
+        },
+        "multilingualName": {
+            "type": ["null", "object"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "type": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {
+                    "type": ["null", "integer"]
+                },
+                "tag": {
+                    "type": ["null", "string"]
+                },
+                "label": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "multilingualDescription": {
+            "type": ["null", "object"]
+        },
+        "description": {
+            "type": ["null", "string"]
+        },
+        "position": {
+            "type": ["null", "integer"]
+        }
+    }
+}
