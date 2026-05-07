@@ -398,7 +398,6 @@ class LeavesStream(LuccaLegacyStream):
                 record["id"]
                 for record in legal_units_stream.get_records(context=None)
             ]
-            self.logger.info("Fetched %d legal unit IDs", len(self._legal_unit_ids))
         return self._legal_unit_ids
 
     @override
@@ -580,7 +579,6 @@ class DueTimesheetsStream(LuccaLegacyStream):
                 record["id"]
                 for record in legal_units_stream.get_records(context=None)
             ]
-            self.logger.info("Fetched %d legal unit IDs", len(self._legal_unit_ids))
         return self._legal_unit_ids
 
     @override
