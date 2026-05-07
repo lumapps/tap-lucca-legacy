@@ -455,35 +455,36 @@ class LeaveRequestsStream(LuccaLegacyStream):
     replication_key = None
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
-class SickLeaveCertificatesStream(LuccaLegacyStream):
-    name = "sick_leave_certificates"
-    path = "/api/v3/sickLeaveCertificates"
-    records_jsonpath = "$.data.items[*]"
-    paginator = "offset"
-    default_page_size = 250
-    paginator_count_jsonpath = "data.count"
-    stream_params={
-        "fields": ",".join([
-            "id",
-            "leavePeriodId",
-            "leaveAccountId",
-            "authorId",
-            "creationDate",
-            "isActive",
-            "cancellationDate",
-            "cancellationUserId",
-            "partTimeNature",
-            "partTimeActivityRate",
-            "partTimeReturnType",
-            "extension",
-            "originalLeavePeriodId",
-            "collection.count"
-        ])
-    }
+# DO NOT ENABLE THIS STREAM, SENSITIVE DATA
+# class SickLeaveCertificatesStream(LuccaLegacyStream):
+#     name = "sick_leave_certificates"
+#     path = "/api/v3/sickLeaveCertificates"
+#     records_jsonpath = "$.data.items[*]"
+#     paginator = "offset"
+#     default_page_size = 250
+#     paginator_count_jsonpath = "data.count"
+#     stream_params={
+#         "fields": ",".join([
+#             "id",
+#             "leavePeriodId",
+#             "leaveAccountId",
+#             "authorId",
+#             "creationDate",
+#             "isActive",
+#             "cancellationDate",
+#             "cancellationUserId",
+#             "partTimeNature",
+#             "partTimeActivityRate",
+#             "partTimeReturnType",
+#             "extension",
+#             "originalLeavePeriodId",
+#             "collection.count"
+#         ])
+#     }
 
-    primary_keys = ("id",)
-    replication_key = None
-    schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
+#     primary_keys = ("id",)
+#     replication_key = None
+#     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class TimeEntriesStream(LuccaLegacyStream):
     name = "time_entries"
