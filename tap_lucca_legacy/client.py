@@ -13,7 +13,6 @@ from singer_sdk.streams import RESTStream
 from singer_sdk.authenticators import APIKeyAuthenticator
 
 
-import logging
 from tap_lucca_legacy import schemas
 
 if sys.version_info >= (3, 12):
@@ -181,7 +180,6 @@ class LuccaLegacyStream(RESTStream):
             if starting_date := self.get_starting_timestamp(context):
                 params[self.replication_key] = starting_date.isoformat()
 
-        self.logger.info("QUERY PARAMS: %s", params)
         return params
 
     @override
