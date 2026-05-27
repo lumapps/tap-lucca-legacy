@@ -37,6 +37,7 @@ class EmployeesStream(LuccaLegacyStream):
             "firstName",
             "lastName",
             "mail",
+            "birthDate",
             "login",
             "employeeNumber",
             "civilTitle",

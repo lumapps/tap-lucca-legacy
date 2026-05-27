@@ -29,6 +29,9 @@
         "mail": {
             "type": ["null", "string"]
         },
+        "birthDate": {
+            "type": ["null", "string"]
+        },
         "login": {
             "type": ["null", "string"]
         },
