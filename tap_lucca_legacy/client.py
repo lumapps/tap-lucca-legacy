@@ -178,7 +178,7 @@ class LuccaLegacyStream(RESTStream):
             params["orderBy"] = f"{self.replication_key},asc"
 
             if starting_date := self.get_starting_timestamp(context):
-                params[self.replication_key] = starting_date.isoformat()
+                params[self.replication_key] = f"since,{starting_date.isoformat()}"
 
         return params
 
