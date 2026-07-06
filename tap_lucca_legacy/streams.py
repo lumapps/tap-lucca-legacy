@@ -694,8 +694,7 @@ class ExpenseClaimsStream(LuccaLegacyStream):
     }
 
     primary_keys = ("id",)
-    replication_key = "modifiedOn"
-    is_sorted=True
+    replication_key = None
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
 
 class ExpenseClaimItemsStream(LuccaLegacyStream):
@@ -753,6 +752,5 @@ class ExpenseClaimItemsStream(LuccaLegacyStream):
     }
 
     primary_keys = ("id",)
-    replication_key = "modifiedOn"
-    is_sorted=True
+    replication_key = None
     schema: ClassVar[StreamSchema] = StreamSchema(SCHEMAS_DIR)
