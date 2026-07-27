@@ -50,7 +50,7 @@ class EmployeesStream(LuccaLegacyStream):
             "externalId",
             "extendeddata",
             "attributes",
-            "applicationData",
+            "applicationData.fullTimeEquivalent",
             "culture",
             "rolePrincipal",
             "habilitedRoles",
